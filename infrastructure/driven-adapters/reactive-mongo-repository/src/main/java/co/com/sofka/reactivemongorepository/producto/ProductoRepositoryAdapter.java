@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 @Repository
 @RequiredArgsConstructor
-public class ProductoRepositoyAdapter implements ProductoRepository {
+public class ProductoRepositoryAdapter implements ProductoRepository {
 
     private final ProductoDataRepository productoDataRepository;
 
