@@ -2,19 +2,21 @@ package co.com.sofka.reactivemongorepository.categoria;
 
 import co.com.sofka.model.categoria.Categoria;
 import co.com.sofka.model.categoria.gateways.CategoriaRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
-@RequiredArgsConstructor
 public class CategoriaRepositoryAdapter implements CategoriaRepository {
-    private final CategoriaDataRepository categoriaDataRepository;
+    @Autowired
+    private CategoriaDataRepository categoriaDataRepository;
 
     @Override
     public Flux<Categoria> findAllCategoria() {
-        return categoriaDataRepository.findAll();
+        Flux<Categoria> categorias =  categoriaDataRepository.findAll();
+        return categorias;
+
     }
 
     @Override
