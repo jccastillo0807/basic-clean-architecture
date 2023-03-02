@@ -1,15 +1,10 @@
 package co.com.sofka.model.autor.gateways;
 
 import co.com.sofka.model.autor.Autor;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 public interface AutorRepository {
-    public List<Autor> findAll();
-
-    public Autor findById(Long id);
-
-    public Autor create(Autor autor);
-
-    public void delete(Long id);
+Flux <Autor> findAll();
+Autor findByCodigo(Long id);
+Autor findByNombre(String nombre);
 }
