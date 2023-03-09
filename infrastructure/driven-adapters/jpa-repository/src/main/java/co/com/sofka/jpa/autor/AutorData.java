@@ -1,10 +1,12 @@
 package co.com.sofka.jpa.autor;
 
+import co.com.sofka.jpa.escritura.EscrituraData;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,4 +20,7 @@ public class AutorData {
     @NotEmpty
     @Column(name = "nombre")
     private String nombre;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "autorData")
+    private List<EscrituraData> escrituraData;
 }

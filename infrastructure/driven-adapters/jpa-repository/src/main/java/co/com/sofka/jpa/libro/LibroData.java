@@ -1,5 +1,6 @@
 package co.com.sofka.jpa.libro;
 
+import co.com.sofka.jpa.escritura.EscrituraData;
 import co.com.sofka.jpa.prestamo.PrestamoData;
 import lombok.Data;
 
@@ -37,7 +38,11 @@ public class LibroData implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "libroData")
     private List<PrestamoData> prestamoData;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "libroData")
+    private List<EscrituraData> escrituraData;
+
     public LibroData(){
+        this.escrituraData = new ArrayList<>();
         this.prestamoData = new ArrayList<>();
     }
 
