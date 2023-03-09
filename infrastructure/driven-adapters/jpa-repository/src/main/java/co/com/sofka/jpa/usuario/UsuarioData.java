@@ -1,16 +1,19 @@
 package co.com.sofka.jpa.usuario;
 
+import co.com.sofka.jpa.prestamo.PrestamoData;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "T_USUARIOS")
-@NoArgsConstructor
-public class UsuarioData {
+//@NoArgsConstructor
+public class UsuarioData implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,4 +33,12 @@ public class UsuarioData {
     @NotEmpty
     private String nombre;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarioData")
+    private List<PrestamoData> prestamoData;
+
+    public UsuarioData() {
+        this.prestamoData = new ArrayList<>();
+    }
+
+    private static final long serialVersionUID = 1L;
 }

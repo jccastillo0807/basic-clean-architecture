@@ -7,4 +7,7 @@ import lombok.Data;
 public class Libro {
     private Long codigo;
     private String nombre;
+    private String isbn;
+    private String editorial;
+    private Integer nroPaginas;
 }

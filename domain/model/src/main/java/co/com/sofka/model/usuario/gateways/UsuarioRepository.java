@@ -1,15 +1,15 @@
 package co.com.sofka.model.usuario.gateways;
 
 import co.com.sofka.model.usuario.Usuario;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface UsuarioRepository {
-    public List<Usuario> findAll();
+    Flux<Usuario> findAll();
 
-    public Usuario findById(Long id);
+    Usuario findByCodigo(Long id);
 
-    public Usuario create(Usuario usuario);
+    Mono<Usuario> create(Usuario usuario);
 
-    public void delete(Long id);
+    void delete(Long id);
 }

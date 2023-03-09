@@ -1,15 +1,15 @@
 package co.com.sofka.model.libro.gateways;
 
 import co.com.sofka.model.libro.Libro;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface LibroRepository {
-    public List<Libro> findAll();
+    Flux<Libro> findAll();
 
-    public Libro findById(Long id);
+    Libro findByCodigo(Long id);
 
-    public Libro create(Libro libro);
+    Mono<Libro> create(Libro libro);
 
-    public void delete(Long id);
+    void delete(Long id);
 }

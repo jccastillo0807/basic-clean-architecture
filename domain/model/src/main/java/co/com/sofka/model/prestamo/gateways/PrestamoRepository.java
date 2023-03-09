@@ -1,15 +1,15 @@
 package co.com.sofka.model.prestamo.gateways;
 
 import co.com.sofka.model.prestamo.Prestamo;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface PrestamoRepository {
-    public List<Prestamo> findAll();
+    Flux<Prestamo> findAll();
 
-    public Prestamo findById(Long id);
+    Prestamo findByCodigo(Long id);
 
-    public Prestamo create(Prestamo prestamo);
+    Mono<Prestamo> create(Prestamo prestamo);
 
-    public void delete(Long id);
+    void delete(Long id);
 }
