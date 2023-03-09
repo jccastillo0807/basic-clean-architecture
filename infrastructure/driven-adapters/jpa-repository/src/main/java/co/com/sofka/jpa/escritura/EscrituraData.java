@@ -2,6 +2,8 @@ package co.com.sofka.jpa.escritura;
 
 import co.com.sofka.jpa.autor.AutorData;
 import co.com.sofka.jpa.libro.LibroData;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +12,10 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "T_AUTORES_LIBROS")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@Table(name = "T_AUTORES_LIBROS")
 public class EscrituraData implements Serializable {
 
     @Id

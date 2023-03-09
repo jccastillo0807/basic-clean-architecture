@@ -1,6 +1,8 @@
 package co.com.sofka.jpa.usuario;
 
 import co.com.sofka.jpa.prestamo.PrestamoData;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,8 +13,10 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "T_USUARIOS")
 //@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@Table(name = "T_USUARIOS")
 public class UsuarioData implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

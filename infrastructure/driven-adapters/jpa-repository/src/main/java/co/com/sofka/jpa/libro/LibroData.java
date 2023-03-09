@@ -2,6 +2,8 @@ package co.com.sofka.jpa.libro;
 
 import co.com.sofka.jpa.escritura.EscrituraData;
 import co.com.sofka.jpa.prestamo.PrestamoData;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,8 +14,10 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "T_LIBROS")
 //@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@Table(name = "T_LIBROS")
 public class LibroData implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

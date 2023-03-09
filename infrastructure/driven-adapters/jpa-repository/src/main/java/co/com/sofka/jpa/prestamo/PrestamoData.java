@@ -2,6 +2,8 @@ package co.com.sofka.jpa.prestamo;
 
 import co.com.sofka.jpa.libro.LibroData;
 import co.com.sofka.jpa.usuario.UsuarioData;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,8 +14,10 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "T_PRESTAMOS")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@Table(name = "T_PRESTAMOS")
 public class PrestamoData implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
