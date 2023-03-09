@@ -5,8 +5,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface ProductoRepository {
-    public Flux<Producto> findAll();
-    public Mono<Producto> findById(String id);
-    public Mono<Producto> save(Producto producto);
-    public Mono<Void> delete(Producto producto);
+    Flux<Producto> findAll();
+    Mono<Producto> findById(String id);
+    Mono<Producto> save(Producto producto);
+    Mono<Void> delete(Producto producto);
 }

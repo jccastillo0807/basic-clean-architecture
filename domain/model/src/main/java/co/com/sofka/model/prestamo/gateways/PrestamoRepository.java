@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 public interface PrestamoRepository {
     Flux<Prestamo> findAll();
 
-    Prestamo findByCodigo(Long id);
+    Mono<Prestamo> findByCodigo(Long id);
 
     Mono<Prestamo> create(Prestamo prestamo);
 

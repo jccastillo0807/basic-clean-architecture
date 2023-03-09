@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 public interface UsuarioRepository {
     Flux<Usuario> findAll();
 
-    Usuario findByCodigo(Long id);
+    Mono<Usuario> findByCodigo(Long id);
 
     Mono<Usuario> create(Usuario usuario);
 

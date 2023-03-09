@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 public interface LibroRepository {
     Flux<Libro> findAll();
 
-    Libro findByCodigo(Long id);
+    Mono<Libro> findByCodigo(Long id);
 
     Mono<Libro> create(Libro libro);
 

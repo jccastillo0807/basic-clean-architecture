@@ -5,11 +5,11 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface CategoriaRepository {
-    public Flux<Categoria> findAllCategoria();
+    Flux<Categoria> findAllCategoria();
 
 
-    public Mono<Categoria> findCategoriaById(String id);
+    Mono<Categoria> findCategoriaById(String id);
 
 
-    public Mono<Categoria> saveCategoria(Categoria categoria);
+    Mono<Categoria> saveCategoria(Categoria categoria);
 }

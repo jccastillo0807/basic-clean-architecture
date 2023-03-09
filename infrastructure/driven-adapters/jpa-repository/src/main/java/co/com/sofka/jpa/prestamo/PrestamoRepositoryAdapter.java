@@ -26,13 +26,15 @@ public class PrestamoRepositoryAdapter extends AdapterOperations<Prestamo, Prest
     }
 
     @Override
-    public Prestamo findByCodigo(Long id) {
+    public Mono<Prestamo> findByCodigo(Long id) {
         Optional<PrestamoData> prestamoData = repository.findById(id);
-        return Prestamo.builder()
-                .id(prestamoData.get().getId())
-                .fechaPrestamo(prestamoData.get().getFechaPrestamo())
-                .fechaDevolucion(prestamoData.get().getFechaDevolucion())
-                .build();
+        return Mono.just(
+                Prestamo.builder()
+                        .id(prestamoData.get().getId())
+                        .fechaPrestamo(prestamoData.get().getFechaPrestamo())
+                        .fechaDevolucion(prestamoData.get().getFechaDevolucion())
+                        .build()
+        );
     }
 
     @Override

@@ -26,15 +26,17 @@ public class LibroRepositoryAdapter extends AdapterOperations<Libro, LibroData, 
     }
 
     @Override
-    public Libro findByCodigo(Long id) {
+    public Mono<Libro> findByCodigo(Long id) {
         Optional<LibroData> libroData = repository.findById(id);
-        return Libro.builder()
-                .codigo(libroData.get().getCodigo())
-                .nombre(libroData.get().getNombre())
-                .isbn(libroData.get().getIsbn())
-                .editorial(libroData.get().getEditorial())
-                .nroPaginas(libroData.get().getNroPaginas())
-                .build();
+        return Mono.just(
+                Libro.builder()
+                        .codigo(libroData.get().getCodigo())
+                        .nombre(libroData.get().getNombre())
+                        .isbn(libroData.get().getIsbn())
+                        .editorial(libroData.get().getEditorial())
+                        .nroPaginas(libroData.get().getNroPaginas())
+                        .build()
+        );
     }
 
     @Override

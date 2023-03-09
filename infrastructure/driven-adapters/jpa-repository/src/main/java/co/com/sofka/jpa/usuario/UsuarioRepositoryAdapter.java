@@ -24,16 +24,18 @@ public class UsuarioRepositoryAdapter extends AdapterOperations<Usuario, Usuario
     }
 
     @Override
-    public Usuario findByCodigo(Long id) {
+    public Mono<Usuario> findByCodigo(Long id) {
         Optional<UsuarioData> usuarioData = repository.findById(id);
-        return Usuario.builder()
-                .id(usuarioData.get().getId())
-                .tipoIdentificacion(usuarioData.get().getTipoIdentificacion())
-                .numeroIdentificacion(usuarioData.get().getNumeroIdentificacion())
-                .direccion(usuarioData.get().getDireccion())
-                .telefono(usuarioData.get().getTelefono())
-                .nombre(usuarioData.get().getNombre())
-                .build();
+        return Mono.just(
+                Usuario.builder()
+                        .id(usuarioData.get().getId())
+                        .tipoIdentificacion(usuarioData.get().getTipoIdentificacion())
+                        .numeroIdentificacion(usuarioData.get().getNumeroIdentificacion())
+                        .direccion(usuarioData.get().getDireccion())
+                        .telefono(usuarioData.get().getTelefono())
+                        .nombre(usuarioData.get().getNombre())
+                        .build()
+        );
     }
 
     @Override
